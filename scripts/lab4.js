@@ -7,9 +7,10 @@
  */
 function sumValues(num1, num2, add) {
     if (add) {
-        const result = num1 + num2;
-
-        return result;
+        if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+            return false;
+        }
+        return num1 + num2;
     }
     else {
         return false;
@@ -25,6 +26,10 @@ function sumValues(num1, num2, add) {
 function discountPrices(prices, discount) {
     const discounted = []
     const length = prices.length;
+    if (!Array.isArray(prices) || typeof discount !== 'number') {
+        return false;
+    }
+
     if (length === 0) {
         return false;
     }
